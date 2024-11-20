@@ -104,7 +104,7 @@ session_start();
         $_SESSION["loggedin"] = TRUE;
         $_SESSION["patient_namn"] = $_SESSION["patient_namn_temp"];
         unset($_SESSION["patient_namn_temp"]);
-        header('Location: prototyp-hemsida.php'); //skickar personen till startsidan
+        header('Location: minasidor.php'); //skickar personen till startsidan
         exit();
     } elseif (isset($_POST["login_conf"]) && !isset($_POST["verify"])) {
         //felmeddelande om något felaktigt skrivs in

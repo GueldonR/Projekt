@@ -42,22 +42,20 @@ footer {
   text-align: center;
 }
 
-footer div{
+footer div {
   margin: 10px;
-  margin-left:0px;
+  margin-left: 0px;
   text-align: left;
   display: inline-block;
 }
 
-
-
-footer a{
+footer a {
   color: blue;
   padding: 0px;
 }
 
-footer a:hover{
-  color:gray;
+footer a:hover {
+  color: gray;
 }
 
 .page-container {
@@ -110,4 +108,3 @@ footer a:hover{
   text-decoration: none;
   color: var(--textcolor);
 }
-
