@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,19 +20,15 @@
 <body>
     <!-- Header -->
     <header>
-        <p>Mölndals Vårdcentral</p>
+        <p>Mölndals </p>
         <span class="material-symbols-outlined">search</span> <!--Sökfunktions ikon-->
 
-        <nav>
-            <ul>
-                <li>
-                    <a href="prototyp-login.php" class="navigationcolor">Hem</a>
-                </li>
-                <li>
-                    <a href="prototyp-login-sida.php">Login</a>
-                </li>
-            </ul>
-        </nav>
+        <!-- Login knappen-->
+        <div class="moment">
+            <button popovertarget="my-popover">
+                Login
+            </button>
+        </div>
     </header>
     <!-- Personnummers prompten -->
     <div id="my-popover" popover>
@@ -61,6 +62,8 @@
             </div>
         </div>
     </div>
+
+    
     <footer>
         <div>
             <div>
