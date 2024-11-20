@@ -42,20 +42,22 @@ footer {
   text-align: center;
 }
 
-footer div {
+footer div{
   margin: 10px;
-  margin-left: 0px;
+  margin-left:0px;
   text-align: left;
   display: inline-block;
 }
 
-footer a {
+
+
+footer a{
   color: blue;
   padding: 0px;
 }
 
-footer a:hover {
-  color: gray;
+footer a:hover{
+  color:gray;
 }
 
 .page-container {
@@ -107,4 +109,29 @@ footer a:hover {
 .moment a {
   text-decoration: none;
   color: var(--textcolor);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.navigationcolor{
+  color:rgb(129, 169, 255);
 }

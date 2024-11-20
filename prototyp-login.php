@@ -1,8 +1,3 @@
-<?php
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,12 +18,16 @@ session_start();
         <p>Mölndals Vårdcentral</p>
         <span class="material-symbols-outlined">search</span> <!--Sökfunktions ikon-->
 
-        <!-- Login knappen-->
-        <div class="moment">
-            <button popovertarget="my-popover">
-                Login
-            </button>
-        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="prototyp-login.php" class="navigationcolor">Hem</a>
+                </li>
+                <li>
+                    <a href="prototyp-login-sida.php">Login</a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <!-- Personnummers prompten -->
     <div id="my-popover" popover>
@@ -62,55 +61,6 @@ session_start();
             </div>
         </div>
     </div>
-
-    <?php
-
-    // SQL uppkoppling
-    $pdo = new PDO("mysql:dbname=grupp4;host=localhost", "sqllab", "Hare#2022");
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-    if (isset($_POST["login"])) {
-
-        //sql fråga för att fråga om det finns en patient i databasen med det personnumret
-        $sql = 'SELECT * FROM Patient WHERE PNR = :ulogin';
-        $stmt = $pdo->prepare($sql);
-        //binder parametern till sql frågan
-        $stmt->bindParam(':ulogin', $_POST["login"]);
-        $stmt->execute();
-
-        //hämtar raden
-        $patient = $stmt->fetch();
-
-        //om raden är satt och existerar körs koden
-        if ($patient) {
-            echo "<div>";
-            echo "<form method='POST' action='prototyp-login.php'>";
-            echo "<label> QR KOD VERIFIERA MED BANKID: ";
-            echo "<input type='checkbox' name='verify'>";
-            echo "</label>";
-            echo "<input type='hidden' name='login_conf' value='1'>";
-            echo "<input type='submit'>";
-            echo "</form>";
-            echo "</div>";
-
-            $_SESSION["patient_namn_temp"] = $patient['NAMN'];
-        } else {
-            //felmeddelande om något felaktigt skrivs in
-            echo "<div class='start'><p>Felaktigt personnummer</p></div>";
-        }
-    }
-    if (isset($_POST["verify"])) {
-        //sessionen sätts till TRUE för att säga till de andra sidorna att de är inloggade
-        $_SESSION["loggedin"] = TRUE;
-        $_SESSION["patient_namn"] = $_SESSION["patient_namn_temp"];
-        unset($_SESSION["patient_namn_temp"]);
-        header('Location: minasidor.php'); //skickar personen till startsidan
-        exit();
-    } elseif (isset($_POST["login_conf"]) && !isset($_POST["verify"])) {
-        //felmeddelande om något felaktigt skrivs in
-        echo "<div class='start'><p>BANK ID FEL</p></div>";
-    }
-    ?>
     <footer>
         <div>
             <div>

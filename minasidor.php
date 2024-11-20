@@ -1,8 +1,8 @@
 <?php
-session_start();
-if ($_SESSION["loggedin"] == FALSE) {
-    header('Location: prototyp-login.php');
-}
+    session_start();
+    if ($_SESSION["loggedin"] == FALSE) {
+        header('Location: prototyp-login-sida.php');
+    }
 ?>
 
 <!DOCTYPE html>
